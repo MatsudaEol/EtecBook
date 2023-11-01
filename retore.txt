@@ -16,3 +16,9 @@ dotnet ef
     dotnet ef migrations add criar-banco
 
     dotnet ef database update
+
+server
+    dotnet run
+
+EtecbookUi
+    ng serve -o

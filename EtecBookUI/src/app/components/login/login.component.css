@@ -1,17 +1,12 @@
-:host-context(body){
+main {
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-main {
-    min-height: 100vh;
-    text-align: center;
-    max-width: 400px;
-}
-
-.form-signin {
-    max-width: 400px;
+form {
+    width: 400px !important;
 }
 
 .separator {
