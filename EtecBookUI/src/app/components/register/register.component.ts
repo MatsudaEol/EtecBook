@@ -1,5 +1,6 @@
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import ValidateForm from 'src/app/helpers/validateForm';
 
 @Component({
   selector: 'app-register',
@@ -8,15 +9,15 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
-  registerForm!: FormGroup;
+  registerForm!: FormGroup
 
-  constructor(private fb: FormBuilder) {}
+  constructor (private fb: FormBuilder) {}
 
   ngOnInit(){
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.compose([Validators.required, Validators.email])],
-      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
+      password: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
     });
   }
 
@@ -25,6 +26,11 @@ export class RegisterComponent {
       // Enviar os dados a API
     } else {
       // Exibir mensagem de erro
+      ValidateForm.validadteAllFormFields(this.registerForm);
     }
+  }
+
+  get f(){
+    return this.registerForm.controls;
   }
 }
